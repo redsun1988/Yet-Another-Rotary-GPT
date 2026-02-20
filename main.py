@@ -37,7 +37,7 @@ def main():
     
     # Demo generation
     context = "ROMEO:\n"
-    tokens = torch.tensor([enc.encode(context)], dtype=torch.long)
+    tokens = torch.tensor([enc.encode(context)], dtype=torch.long, device=device)
     generated = model.generate_greedy(tokens, max_new_tokens=100, temperature=0.8)
     print(enc.decode(generated[0].tolist()))
 
